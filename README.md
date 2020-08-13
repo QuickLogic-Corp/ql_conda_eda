@@ -11,7 +11,7 @@ The quicklogic-fpga-toolchain supports ql-eos-s3 device for FPGA implementation.
 
 Current versions are;
 
- * Symbiflow - 1.0.0
+ * Symbiflow - 1.1.0
 
 
 # Support Tools
