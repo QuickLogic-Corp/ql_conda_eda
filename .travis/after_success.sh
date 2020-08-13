@@ -17,8 +17,10 @@ else
         start_section "package.upload" "${GREEN}Package uploading...${NC}"
         if [[ -z $CUSTOM_LABEL ]]; then
    	        anaconda -t $ANACONDA_TOKEN upload --user $ANACONDA_USER --label main $CONDA_OUT
+            echo "Package Uploaded to main label. $CONDA_OUT"
         else
    	        anaconda -t $ANACONDA_TOKEN upload --user $ANACONDA_USER --label $CUSTOM_LABEL $CONDA_OUT
+            echo "Package Uploaded to $CUSTOM_LABEL label. $CONDA_OUT"
         fi
         end_section "package.upload"
     else
