@@ -5,7 +5,7 @@ package:
 
 source:
   git_url: https://github.com/QuickLogic-Corp/vtr-verilog-to-routing.git
-  git_rev: master+wip
+  git_rev: blackbox_timing
 
 build:
   # number: 201803050325
