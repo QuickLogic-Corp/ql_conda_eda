@@ -1,5 +1,5 @@
 # Some colors, use it like following;
-# echo -e "Hello ${YELLOW}yellow${NC}"
+echo -e "Hello ${YELLOW}yellow${NC}"
 GRAY=' \033[0;30m'
 RED=' \033[0;31m'
 GREEN=' \033[0;32m'
@@ -9,6 +9,7 @@ NC='\033[0m' # No Color
 
 SPACER="echo -e ${GRAY} - ${NC}"
 
+echo =e "entered"
 export -f travis_nanoseconds
 export -f travis_fold
 export -f travis_time_start
