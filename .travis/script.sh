@@ -1,8 +1,10 @@
 #!/bin/bash
 
+echo "entered script.sh"
 source $TRAVIS_BUILD_DIR/.travis/common.sh
 set -e
 
+echo "completed sourcing of common.sh"
 $SPACER
 
 start_section "info.conda.package" "Info on ${YELLOW}conda package${NC}"
