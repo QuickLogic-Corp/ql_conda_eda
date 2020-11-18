@@ -70,6 +70,7 @@ if [ -f "$PACKAGE/conda_build_config.$TOOLCHAIN_ARCH.yaml" ]; then
 fi
 
 echo -e "entered line 72"
+echo -e "conda build args : $CONDA_BUILD_ARGS"
 export CONDA_OUT="$(conda render --output $CONDA_BUILD_ARGS 2> /dev/null | grep conda-bld | grep tar.bz2 | tail -n 1 | sed -e's/-[0-9]\+\.tar/*.tar/' -e's/-git//')"
 echo -e "entered line 74"
 echo "          GITREV: $GITREV"
