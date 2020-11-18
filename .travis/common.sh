@@ -1,5 +1,5 @@
 # Some colors, use it like following;
-echo -e "Hello ${YELLOW}yellow${NC}"
+# echo -e "Hello ${YELLOW}yellow${NC}"
 GRAY=' \033[0;30m'
 RED=' \033[0;31m'
 GREEN=' \033[0;32m'
@@ -9,7 +9,6 @@ NC='\033[0m' # No Color
 
 SPACER="echo -e ${GRAY} - ${NC}"
 
-echo =e "entered"
 export -f travis_nanoseconds
 export -f travis_fold
 export -f travis_time_start
@@ -59,6 +58,8 @@ else
     export CONDA_PATH="$BASE_PATH/conda"
     export PATH="$CONDA_PATH/bin:$PATH"
 fi
+
+echo -e "entered line 62"
 
 export GIT_SSL_NO_VERIFY=1
 export GITREV="$(git describe --long 2>/dev/null || echo "unknown")"
