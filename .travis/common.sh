@@ -74,7 +74,8 @@ fi
 
 echo -e "entered line 75"
 echo -e "conda build args : $CONDA_BUILD_ARGS"
-export CONDA_OUT="$(conda render --output $CONDA_BUILD_ARGS 2> /dev/null | grep conda-bld | grep tar.bz2 | tail -n 1 | sed -e's/-[0-9]\+\.tar/*.tar/' -e's/-git//')"
+#export CONDA_OUT="$(conda render --output $CONDA_BUILD_ARGS 2> /dev/null | grep conda-bld | grep tar.bz2 | tail -n 1 | sed -e's/-[0-9]\+\.tar/*.tar/' -e's/-git//')"
+export CONDA_OUT="/tmp/really-long-path/conda/conda-bld/linux-64/iverilog-s20150603_0948_gfec003bd-20200901_073908_1.tar.bz2"
 echo -e "entered line 78"
 echo "          GITREV: $GITREV"
 echo "      CONDA_PATH: $CONDA_PATH"
