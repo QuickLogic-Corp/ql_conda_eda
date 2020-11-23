@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $GITHUB_EVENT_PATH/../.travis/common.sh
+source $GITHUB_WORKFLOW/../.travis/common.sh
 set -e
 
 # Git repo fixup
