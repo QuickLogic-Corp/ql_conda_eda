@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $GITHUB_WORKFLOW/../.travis/common.sh
+source ./.github/../.travis/common.sh
 set -e
 
 # Git repo fixup
