@@ -45,7 +45,7 @@ export PYTHONWARNINGS=ignore::UserWarning:conda_build.environ
 
 export BASE_PATH="/tmp/really-long-path"
 mkdir -p "$BASE_PATH"
-if [ $runner.os = 'windows' ]; then
+if [ $RUNNER_OS = 'windows' ]; then
     export CONDA_PATH='/c/tools/miniconda3'
     export PATH=$CONDA_PATH/Scripts/:$CONDA_PATH/:$PATH
 else

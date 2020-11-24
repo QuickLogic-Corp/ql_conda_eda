@@ -6,10 +6,6 @@ set -e
 # Getting the conda environment
 #start_section "environment.conda" "Setting up basic ${YELLOW}conda environment${NC}"
 
-#echo "platform:  ${process.platform} "
-echo "platform $RUNNER_OS"
-#console.log(process.env['RUNNER_OS']) 
-
 
 mkdir -p $BASE_PATH
 ./conda-get.sh $CONDA_PATH
@@ -19,8 +15,8 @@ conda install pexpect
 conda config --add channels Quicklogic-Corp
 conda config --add channels $(echo $TRAVIS_REPO_SLUG | sed -e's@/.*$@@')
 
-if [ -e $PACKAGE/condarc_$TRAVIS_OS_NAME ]; then
-	export PACKAGE_CONDARC=$PACKAGE/condarc_$TRAVIS_OS_NAME
+if [ -e $PACKAGE/condarc_$RUNNER_OS ]; then
+	export PACKAGE_CONDARC=$PACKAGE/condarc_$RUNNER_OS
 elif [ -e $PACKAGE/condarc ]; then
 	export PACKAGE_CONDARC=$PACKAGE/condarc
 fi
