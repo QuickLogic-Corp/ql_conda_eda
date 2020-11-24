@@ -33,7 +33,7 @@ conda info
 conda config --set safety_checks disabled
 conda config --set channel_priority strict
 mkdir -p ~/.conda/pkg
-conda config --add pkgs_dirs ~/.conda/pkg
+conda config --add pkgs_dirs "$HOME/.conda/pkg"
 conda config --show
 
 echo "python==3.7.*" > $CONDA_PATH/conda-meta/pinned
