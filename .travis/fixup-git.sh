@@ -14,7 +14,7 @@ $SPACER
 echo "githubref $(github.ref)"
 git remote -v
 git branch -v
-git branch -D github_actions
+#git branch -D github_actions
 CURRENT_GITREV="$(git rev-parse HEAD)"
 git checkout -b github_actions $CURRENT_GITREV
 git tag -l
