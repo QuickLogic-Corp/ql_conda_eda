@@ -11,10 +11,10 @@ git fetch --tags
 git submodule update --recursive --init
 git submodule foreach git submodule update --recursive --init
 $SPACER
-echo "githubref $(github.ref)"
+#echo "githubref $(github.ref)"
 git remote -v
 git branch -v
-git branch -D github_actions
+#it branch -D github_actions
 CURRENT_GITREV="$(git rev-parse HEAD)"
 git checkout -b github_actions $CURRENT_GITREV
 git tag -l
