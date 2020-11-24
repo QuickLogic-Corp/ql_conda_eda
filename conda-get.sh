@@ -12,7 +12,7 @@ if [ $RUNNER_OS = 'windows' ]; then
     export CONDA_PATH='/c/tools/miniconda3'
     export PATH=$CONDA_PATH/bin/:$CONDA_PATH/Scripts/:$PATH
 else
-    if [ $RUNNER_OS = 'linux' ]; then
+    if [ $RUNNER_OS = 'Linux' ]; then
         sys_name=Linux
     else
         sys_name=MacOSX
