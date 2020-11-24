@@ -33,7 +33,9 @@ conda info
 conda config --set safety_checks disabled
 conda config --set channel_priority strict
 mkdir -p ~/.conda/pkg
-#conda config --add pkgs_dirs $HOME/.conda/pkg
+
+echo "before add"
+conda config --add pkgs_dirs ~/.conda/pkg
 conda config --show
 
 echo "python==3.7.*" > $CONDA_PATH/conda-meta/pinned
@@ -42,6 +44,7 @@ echo "python==3.7.*" > $CONDA_PATH/conda-meta/pinned
 conda install -y python
 conda update -y conda
 
+echo "before condabuild"
 conda install -y conda-build
 conda install -y conda-verify
 
@@ -52,4 +55,6 @@ fi
 conda install -y anaconda-client
 conda install -y jinja2
 
+echo "before conda update"
 conda update -y --all
+echo "complete conda update"
