@@ -2,7 +2,7 @@
 
 source ./.github/../.travis/common.sh
 set -e
-
+echo "github_ws $GITHUB_WORKSPACE"
 # Git repo fixup
 start_section "environment.git" "Setting up ${YELLOW}git checkout${NC}"
 set -x
