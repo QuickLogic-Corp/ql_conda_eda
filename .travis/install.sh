@@ -6,8 +6,9 @@ set -e
 # Getting the conda environment
 #start_section "environment.conda" "Setting up basic ${YELLOW}conda environment${NC}"
 
-echo "platform:  ${process.platform} "
-console.log(process.env['RUNNER_OS']) 
+#echo "platform:  ${process.platform} "
+echo "platform $RUNNER_OS"
+#console.log(process.env['RUNNER_OS']) 
 
 
 mkdir -p $BASE_PATH
