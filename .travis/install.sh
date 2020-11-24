@@ -1,10 +1,14 @@
 #!/bin/bash
 
-source $TRAVIS_BUILD_DIR/.travis/common.sh
+source $GITHUB_WORKSPACE/.travis/common.sh
 set -e
 
 # Getting the conda environment
-start_section "environment.conda" "Setting up basic ${YELLOW}conda environment${NC}"
+#start_section "environment.conda" "Setting up basic ${YELLOW}conda environment${NC}"
+
+console.log(`This platform is ${process.platform}`);
+console.log(process.env['RUNNER_OS']) 
+
 
 mkdir -p $BASE_PATH
 ./conda-get.sh $CONDA_PATH
@@ -72,7 +76,7 @@ end_section "conda.download"
 if [ -e $PACKAGE/prescript.$TOOLCHAIN_ARCH.sh ]; then
 	start_section "conda.prescript" "${GREEN}Prescript..${NC}"
 	(
-		cd $TRAVIS_BUILD_DIR
+		cd $GITHUB_WORKSPACE
 		$PACKAGE/prescript.$TOOLCHAIN_ARCH.sh
 	)
 	end_section "conda.prescript"
