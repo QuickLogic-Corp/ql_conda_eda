@@ -6,7 +6,7 @@ set -e
 # Getting the conda environment
 #start_section "environment.conda" "Setting up basic ${YELLOW}conda environment${NC}"
 
-console.log(`This platform is ${process.platform}`);
+echo "platform:  ${process.platform} "
 console.log(process.env['RUNNER_OS']) 
 
 
