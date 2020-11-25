@@ -12,7 +12,7 @@ if [ $RUNNER_OS = 'windows' ]; then
     export CONDA_PATH='/c/tools/miniconda3'
     export PATH=$CONDA_PATH/bin/:$CONDA_PATH/Scripts/:$PATH
 else
-    if [ $RUNNER_OS = 'Linux' ]; then
+    if [ $RUNNER_OS = 'Linux' ] || [ $TRAVIS_OS_NAME = 'linux' ]; then
         sys_name=Linux
     else
         sys_name=MacOSX
@@ -33,9 +33,8 @@ conda info
 conda config --set safety_checks disabled
 conda config --set channel_priority strict
 mkdir -p ~/.conda/pkg
+conda config --prepend pkgs_dirs ~/.conda/pkg
 
-echo "before add"
-conda config --add pkgs_dirs ~/.conda/pkg
 conda config --show
 
 echo "python==3.7.*" > $CONDA_PATH/conda-meta/pinned
@@ -44,7 +43,6 @@ echo "python==3.7.*" > $CONDA_PATH/conda-meta/pinned
 conda install -y python
 conda update -y conda
 
-echo "before condabuild"
 conda install -y conda-build
 conda install -y conda-verify
 
@@ -55,6 +53,4 @@ fi
 conda install -y anaconda-client
 conda install -y jinja2
 
-echo "before conda update"
 conda update -y --all
-echo "complete conda update"

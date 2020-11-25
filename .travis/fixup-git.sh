@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source $GITHUB_WORKSPACE/.travis/common.sh
+source $GITHUB_WORKSPACE/conda-env.sh
 set -e
 # Git repo fixup
 start_section "environment.git" "Setting up ${YELLOW}git checkout${NC}"
@@ -11,12 +12,12 @@ git fetch --tags
 git submodule update --recursive --init
 git submodule foreach git submodule update --recursive --init
 $SPACER
-#echo "githubref $(github.ref)"
 git remote -v
 git branch -v
-#it branch -D github_actions
+git branch -D $TRAVIS_BRANCH
 CURRENT_GITREV="$(git rev-parse HEAD)"
-git checkout -b github_actions $CURRENT_GITREV
+git checkout -b $TRAVIS_BRANCH $CURRENT_GITREV
+#git checkout -b github_actions $CURRENT_GITREV
 git tag -l
 git status -v
 #git describe --long

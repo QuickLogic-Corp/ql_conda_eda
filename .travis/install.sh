@@ -1,10 +1,11 @@
 #!/bin/bash
 
 source $GITHUB_WORKSPACE/.travis/common.sh
+source $GITHUB_WORKSPACE/conda-env.sh
 set -e
 
 # Getting the conda environment
-#start_section "environment.conda" "Setting up basic ${YELLOW}conda environment${NC}"
+start_section "environment.conda" "Setting up basic ${YELLOW}conda environment${NC}"
 
 
 mkdir -p $BASE_PATH
@@ -13,7 +14,8 @@ hash -r
 conda config --set always_yes yes --set changeps1 no
 conda install pexpect
 conda config --add channels Quicklogic-Corp
-conda config --add channels $(echo $GITHUB_REPOSITORY | sed -e's@/.*$@@')
+conda config --add channels $(echo $TRAVIS_REPO_SLUG | sed -e's@/.*$@@')
+#conda config --add channels $(echo $GITHUB_REPOSITORY | sed -e's@/.*$@@')
 
 if [ -e $PACKAGE/condarc_$RUNNER_OS ]; then
 	export PACKAGE_CONDARC=$PACKAGE/condarc_$RUNNER_OS

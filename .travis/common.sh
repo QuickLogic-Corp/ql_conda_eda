@@ -10,7 +10,7 @@ NC='\033[0m' # No Color
 SPACER="echo -e ${GRAY} - ${NC}"
 
 
-if [ $runner.os = 'osx' ]; then
+if [ $RUNNER_OS = 'osx' ]; then
     DATE_SWITCH="-r "
 else
     DATE_SWITCH="--date=@"
