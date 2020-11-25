@@ -16,8 +16,8 @@ git remote -v
 git branch -v
 #git branch -D $TRAVIS_BRANCH
 CURRENT_GITREV="$(git rev-parse HEAD)"
-git checkout -b $TRAVIS_BRANCH $CURRENT_GITREV
-#git checkout -b github_actions $CURRENT_GITREV
+#git checkout -b $TRAVIS_BRANCH $CURRENT_GITREV
+git checkout -b github_actions $CURRENT_GITREV
 git tag -l
 git status -v
 #git describe --long
