@@ -14,7 +14,7 @@ git submodule foreach git submodule update --recursive --init
 $SPACER
 git remote -v
 git branch -v
-git branch -D $TRAVIS_BRANCH
+#git branch -D $TRAVIS_BRANCH
 CURRENT_GITREV="$(git rev-parse HEAD)"
 git checkout -b $TRAVIS_BRANCH $CURRENT_GITREV
 #git checkout -b github_actions $CURRENT_GITREV
