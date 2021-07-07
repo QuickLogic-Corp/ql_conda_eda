@@ -59,16 +59,26 @@ else
     export PATH="$CONDA_PATH/bin:$PATH"
 fi
 
+echo -e "entered line 62"
+
 export GIT_SSL_NO_VERIFY=1
 export GITREV="$(git describe --long 2>/dev/null || echo "unknown")"
 export CONDA_BUILD_ARGS="$EXTRA_BUILD_ARGS $PACKAGE"
+echo -e "conda build args B4: $CONDA_BUILD_ARGS"
+
 export CONDA_TEST_ARGS="--test"
 if [ -f "$PACKAGE/conda_build_config.$TOOLCHAIN_ARCH.yaml" ]; then
 	export CONDA_BUILD_ARGS="$CONDA_BUILD_ARGS -m $PACKAGE/conda_build_config.$TOOLCHAIN_ARCH.yaml"
+	echo "entered line 72 conda build args B4: $CONDA_BUILD_ARGS"
 fi
-export CONDA_OUT="$(conda render --output $CONDA_BUILD_ARGS 2> /dev/null | grep conda-bld | grep tar.bz2 | tail -n 1 | sed -e's/-[0-9]\+\.tar/*.tar/' -e's/-git//')"
 
+echo -e "entered line 75"
+echo -e "conda build args : $CONDA_BUILD_ARGS"
+# export CONDA_OUT="$(conda render --output $CONDA_BUILD_ARGS 2> /dev/null | grep conda-bld | grep tar.bz2 | tail -n 1 | sed -e's/-[0-9]\+\.tar/*.tar/' -e's/-git//')"
+export CONDA_OUT="/tmp/really-long-path/conda/conda-bld/linux-64/iverilog-s20150603_0948_gfec003bd-20200901_073908_1.tar.bz2"
+echo -e "entered line 78"
 echo "          GITREV: $GITREV"
 echo "      CONDA_PATH: $CONDA_PATH"
 echo "CONDA_BUILD_ARGS: $CONDA_BUILD_ARGS"
 echo "       CONDA_OUT: $CONDA_OUT"
+echo -e "entered line 79"
