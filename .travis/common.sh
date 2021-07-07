@@ -9,14 +9,8 @@ NC='\033[0m' # No Color
 
 SPACER="echo -e ${GRAY} - ${NC}"
 
-export -f travis_nanoseconds
-export -f travis_fold
-export -f travis_time_start
-export -f travis_time_finish
-export -f travis_wait
-export -f travis_jigger
 
-if [ $TRAVIS_OS_NAME = 'osx' ]; then
+if [ $RUNNER_OS = 'osx' ]; then
     DATE_SWITCH="-r "
 else
     DATE_SWITCH="--date=@"
@@ -30,16 +24,16 @@ if [ -z "$DATE_STR" ]; then
 fi
 
 function start_section() {
-	travis_fold start "$1"
-	travis_time_start
+	#travis_fold start "$1"
+	#travis_time_start
 	echo -e "${PURPLE}${PACKAGE}${NC}: - $2${NC}"
 	echo -e "${GRAY}-------------------------------------------------------------------${NC}"
 }
 
 function end_section() {
 	echo -e "${GRAY}-------------------------------------------------------------------${NC}"
-	travis_time_finish
-	travis_fold end "$1"
+	#travis_time_finish
+	#travis_fold end "$1"
 }
 
 # Disable this warning;
@@ -51,7 +45,7 @@ export PYTHONWARNINGS=ignore::UserWarning:conda_build.environ
 
 export BASE_PATH="/tmp/really-long-path"
 mkdir -p "$BASE_PATH"
-if [ $TRAVIS_OS_NAME = 'windows' ]; then
+if [ $RUNNER_OS = 'windows' ]; then
     export CONDA_PATH='/c/tools/miniconda3'
     export PATH=$CONDA_PATH/Scripts/:$CONDA_PATH/:$PATH
 else
